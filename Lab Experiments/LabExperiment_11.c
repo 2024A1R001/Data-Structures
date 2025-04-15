@@ -19,19 +19,43 @@ void enqueue(int data){
     newNode->next = NULL;
     if (rear == NULL){
         front = rear = newNode;
-        return;
     }
     rear->next = newNode;
     rear = newNode;
+    printf("%d inserted\n", data);
 }
 int dequeue(){
-
+    if (front == NULL){
+        printf("Queue Underflow");
+        return -1;
+    }
+    Node* temp = front;
+    front = front -> next;
+    if (front == NULL){
+        front = rear = NULL;
+    }
+    int val = temp -> data;
+    free(temp);
+    return val;
 }
 int peek(){
-
+    if (front == NULL){
+        printf("Queue is empty\n");
+        return -1;
+    }
+    return front->data;
 }
 void display(){
-
+    if (front == NULL){
+        printf("Queue is empty\n");
+        return;
+    }
+    Node* temp = front;
+    while (temp != NULL){
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
 }
 int main(){
     while(1){
@@ -45,30 +69,21 @@ int main(){
         scanf("%d", &choice);
         switch(choice){
             case 1:
-                if(isFull()){
-                    printf("Queue is full\n");
-                    break;
-                }
-                int data;
-                printf("Enter data: ");
-                scanf("%d", &data);
-                enqueue(data);
+                printf("Enter value: ");
+                int val;
+                scanf("%d", &val);
+                enqueue(val);
                 break;
             case 2:
-                if(isEmpty()){
-                    printf("Queue is empty\n");
-                    break;
+                int deqVal = dequeue();
+                if (deqVal != -1){
+                    printf("%d dequeued\n", deqVal);
                 }
-                printf("%d is dequeued\n", dequeue());
                 break;
             case 3:
                 printf("Element at front: %d\n", peek());
                 break;
             case 4:
-                if (isEmpty()){
-                    printf("Queue is empty\n");
-                    break;
-                }
                 display();
                 break;
             case 5:
@@ -79,4 +94,4 @@ int main(){
         system("Pause");
     }
     return 0;
-}
+} 
