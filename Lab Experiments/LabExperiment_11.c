@@ -19,9 +19,10 @@ void enqueue(int data){
     newNode->next = NULL;
     if (rear == NULL){
         front = rear = newNode;
+    } else{
+        rear->next = newNode;
+        rear = newNode;
     }
-    rear->next = newNode;
-    rear = newNode;
     printf("%d inserted\n", data);
 }
 int dequeue(){
