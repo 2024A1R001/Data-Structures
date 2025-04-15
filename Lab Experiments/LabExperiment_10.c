@@ -1,5 +1,5 @@
 //Implement a Stack using Linked List and develop functions to perform push and pop operations.
-//Implementing a stack using a linked list
+//15 April 2025
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct Node{
