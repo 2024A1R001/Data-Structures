@@ -212,7 +212,7 @@ int main(){
             case 7:
                 printf("Enter element to search: ");
                 scanf("%d", &element);
-                searchElement(element);
+                search(element);
                 break;
             case 8:
                 displayList();
