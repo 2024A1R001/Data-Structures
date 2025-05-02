@@ -1,4 +1,4 @@
-//Implement a Binary Tree using Array and develop functions to perform traversal, searching, insertion and deletion operations. 
+//Implement a Binary Search Tree using Array and develop functions to perform traversal, searching, insertion and deletion operations. 
 //April 28, 2025
 #include <stdio.h>
 #include <stdlib.h>
