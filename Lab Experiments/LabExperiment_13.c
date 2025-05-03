@@ -57,7 +57,6 @@ void postorder(int root){
 int search(int target){
     for (int i = 0; i < size; i++){
         if (tree[i] == target){
-            printf("Found %d at index %d\n",target,i);
             return i;
         }
     }
@@ -118,8 +117,10 @@ int main(){
             case 5:
                 printf("Enter element to search: ");
                 scanf("%d", &target);
-                if (search(target, 0) == -1) {
+                if (search(target) == -1) {
                     printf("Element not found.\n");
+                } else{
+                    printf("%d found at %d position", target, search(target));
                 }
                 break;
             case 6:
