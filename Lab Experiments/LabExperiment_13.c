@@ -9,9 +9,13 @@ void initialize(){
     for(int i=0; i<MAX; i++)
         tree[i] = -1;
 }
-void insert(int n){ //inserting the data in level form
-    for (int i = size; i < n; i++){
-        scanf("%d",&tree[size++]);
+void insert(int n){ //Inserting n values
+    for (int i = 0; i < n; i++){
+        if (size >= MAX){
+            printf("Tree is full.\n");
+            return;
+        }
+        scanf("%d", &tree[size++]);
     }
 }
 
@@ -50,7 +54,7 @@ int search (int target,int root){
     }
     return search(target,2*root + 1) || search(target,2*root + 2);
 }
-int searchbyiteration(int target){
+int search2(int target){
     for (int i = 0; i < size; i++){
         if (tree[i] == target){
             printf("Found %d at index %d\n",target,i);
@@ -61,11 +65,12 @@ int searchbyiteration(int target){
 }
 
 void delete(int val, int root){
-    int i = searchbyiteration(val);
+    int i = search(val);
     if (i != -1){
         tree[i] = tree[size - 1];
         tree[size - 1] = -1;
         size--;
+        
     }
     else{
         printf("Element not found\n");
