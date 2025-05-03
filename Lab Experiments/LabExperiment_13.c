@@ -69,7 +69,7 @@ void delete(int val, int root){
         tree[i] = tree[size - 1];
         tree[size - 1] = -1;
         size--;
-        
+        printf("Deleted %d from the tree\n", val);
     }
     else{
         printf("Element not found\n");
@@ -120,7 +120,7 @@ int main(){
                 if (search(target) == -1) {
                     printf("Element not found.\n");
                 } else{
-                    printf("%d found at %d position", target, search(target));
+                    printf("Found %d at position %d \n", target, search(target));
                 }
                 break;
             case 6:
