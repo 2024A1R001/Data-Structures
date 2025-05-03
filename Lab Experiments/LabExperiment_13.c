@@ -44,17 +44,17 @@ void postorder(int root){
     postorder (2*root + 2);
     printf("%d ",tree[root]);
 }
-int search (int target,int root){
-    if (tree[root] == -1){
-       return -1;
-    }
-    if (tree[root] == target){
-        printf("Found %d at index %d\n",target,root);
-        return 1;
-    }
-    return search(target,2*root + 1) || search(target,2*root + 2);
-}
-int search2(int target){
+// int RecursiveSearch (int target,int root){
+//     if (tree[root] == -1){
+//        return -1;
+//     }
+//     if (tree[root] == target){
+//         printf("Found %d at index %d\n",target,root);
+//         return 1;
+//     }
+//     return search(target,2*root + 1) || search(target,2*root + 2);
+// }
+int search(int target){
     for (int i = 0; i < size; i++){
         if (tree[i] == target){
             printf("Found %d at index %d\n",target,i);
