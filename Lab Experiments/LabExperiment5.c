@@ -118,7 +118,7 @@ char* convertPrefixToInfix(char* exp){
             strcpy(stack[++top],temp);       
         }
     }
-    char *s = (*malloc)(strlen(stack[top]+1));
+    char *s = (char*)malloc(strlen(stack[top]) + 1);
     strcpy(s,stack[top]);
     return s;
 }
